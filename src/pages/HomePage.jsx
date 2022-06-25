@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { MovieLinkList } from '../components/MovieLinkList/MovieLinkList';
+import MovieLinkList from '../components/MovieLinkList/MovieLinkList';
 import * as Api from '../service/moviesApi';
 
-export const HomePage = () => {
+const HomePage = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -20,3 +20,5 @@ export const HomePage = () => {
     </>
   );
 };
+
+export default HomePage;

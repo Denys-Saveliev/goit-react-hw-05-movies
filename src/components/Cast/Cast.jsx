@@ -4,7 +4,7 @@ import * as Api from '../../service/moviesApi';
 
 const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w200';
 
-export const Cast = () => {
+const Cast = () => {
   const [cast, setCast] = useState(null);
   const { movieId } = useParams();
 
@@ -26,3 +26,5 @@ export const Cast = () => {
     )
   );
 };
+
+export default Cast;

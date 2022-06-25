@@ -1,10 +1,10 @@
 import { SearchForm } from 'components/SearchForm/SearchForm';
-import { MovieLinkList } from 'components/MovieLinkList/MovieLinkList';
+import MovieLinkList from 'components/MovieLinkList/MovieLinkList';
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import * as Api from '../service/moviesApi';
 
-export const MoviesPage = () => {
+const MoviesPage = () => {
   const [data, setData] = useState(null);
   const { search } = useLocation();
 
@@ -26,3 +26,5 @@ export const MoviesPage = () => {
     </>
   );
 };
+
+export default MoviesPage;

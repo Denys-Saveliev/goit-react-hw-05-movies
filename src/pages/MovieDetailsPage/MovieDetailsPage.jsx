@@ -1,15 +1,21 @@
 import { Routes, Route } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import * as Api from '../../service/moviesApi';
 import { Wrapper, Title, Text, Container } from './MovieDetailsPage.styled';
-import { Cast } from 'components/Cast/Cast';
-import { Reviews } from 'components/Reviews/Reviews';
 import { Link } from 'components/Navigation/Navigation.styled';
+const Cast = lazy(() =>
+  import('../../components/Cast/Cast' /* webpackChunkName: "cast-view" */)
+);
+const Reviews = lazy(() =>
+  import(
+    '../../components/Reviews/Reviews' /* webpackChunkName: "reviews-view" */
+  )
+);
 
 const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w300';
 
-export const MovieDetailsPage = () => {
+const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
 
@@ -69,12 +75,16 @@ export const MovieDetailsPage = () => {
 
           <hr />
 
-          <Routes>
-            <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Reviews />} />
-          </Routes>
+          <Suspense fallback={<>loading...</>}>
+            <Routes>
+              <Route path="cast" element={<Cast />} />
+              <Route path="reviews" element={<Reviews />} />
+            </Routes>
+          </Suspense>
         </>
       )}
     </>
   );
 };
+
+export default MovieDetailsPage;

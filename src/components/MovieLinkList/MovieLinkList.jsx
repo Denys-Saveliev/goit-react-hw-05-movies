@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-export const MovieLinkList = ({ data }) => {
+const MovieLinkList = ({ data }) => {
   return (
     data && (
       <ul>
@@ -15,3 +16,11 @@ export const MovieLinkList = ({ data }) => {
     )
   );
 };
+
+MovieLinkList.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({ id: PropTypes.number, title: PropTypes.string })
+  ),
+};
+
+export default MovieLinkList;
