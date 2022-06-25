@@ -18,7 +18,7 @@ export function fetchMoviesTrending() {
 
 export function fetchSearchMovies(query) {
   return fetchMoviesWithErrorHandling(
-    `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&${query}&include_adult=false`
+    `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&include_adult=false`
   );
 }
 

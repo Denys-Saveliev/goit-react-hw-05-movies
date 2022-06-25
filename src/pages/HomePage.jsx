@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { TrendingMovieLinks } from 'components/TrendingMovieLinks/TrendingMovieLinks';
+import { MovieLinkList } from '../components/MovieLinkList/MovieLinkList';
 import * as Api from '../service/moviesApi';
 
 export const HomePage = () => {
@@ -8,7 +8,6 @@ export const HomePage = () => {
   useEffect(() => {
     Api.fetchMoviesTrending()
       .then(data => {
-        console.log(data);
         return data.data.results;
       })
       .then(setData);
@@ -17,7 +16,7 @@ export const HomePage = () => {
   return (
     <>
       <h1>Trending today:</h1>
-      <TrendingMovieLinks data={data} />
+      <MovieLinkList data={data} />
     </>
   );
 };
