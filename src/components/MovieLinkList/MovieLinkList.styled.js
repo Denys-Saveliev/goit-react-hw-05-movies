@@ -28,10 +28,13 @@ const MoviesList = styled.ul`
 `;
 
 const MovieItem = styled.li`
-    overflow: hidden;
-    border: 1px solid #eee56b;
-    border-radius: 10px;
-     background-color: #ddddddc4;
+  overflow: hidden;
+  border: 1px solid #eee56b;
+  border-radius: 10px;
+  background-color: #ddddddc4;
+
+  &:hover {
+    transform: scale(1.03);
   }
 `;
 
