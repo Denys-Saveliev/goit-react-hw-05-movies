@@ -2,7 +2,15 @@ import { Routes, Route } from 'react-router-dom';
 import { useEffect, useState, lazy, Suspense } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import * as Api from '../../service/moviesApi';
-import { Wrapper, Title, Text, Container } from './MovieDetailsPage.styled';
+import {
+  Wrapper,
+  Title,
+  Text,
+  Container,
+  Overview,
+  Box,
+  ContainerLink,
+} from './MovieDetailsPage.styled';
 import { Link } from 'components/Navigation/Navigation.styled';
 const Cast = lazy(() =>
   import('../../components/Cast/Cast' /* webpackChunkName: "cast-view" */)
@@ -31,8 +39,6 @@ const MovieDetailsPage = () => {
         Back
       </button>
 
-      <hr />
-
       {movie && (
         <>
           <Wrapper>
@@ -41,37 +47,36 @@ const MovieDetailsPage = () => {
             </div>
             <Container>
               <h2>{movie.title}</h2>
-              <Wrapper>
+              <Box>
                 <Title>Genres:</Title>
-
                 <Text>{movie.genres.map(genre => genre.name).join(', ')}</Text>
-              </Wrapper>
+              </Box>
 
-              <Wrapper>
+              <Box>
                 <Title>Rate:</Title>
                 <p>{movie.popularity}</p>
-              </Wrapper>
+              </Box>
 
-              <Wrapper>
+              <Box>
                 <Title>Release date:</Title>
                 <p>{movie.release_date}</p>
-              </Wrapper>
+              </Box>
 
-              <h3>Overview</h3>
+              <Overview>Overview</Overview>
               <p>{movie.overview}</p>
             </Container>
           </Wrapper>
 
-          <hr />
+          <ContainerLink>
+            <h2>Additional information:</h2>
 
-          <h2>Additional information</h2>
-
-          <Link to={`/movies/${movieId}/cast`} replace={true}>
-            Cast
-          </Link>
-          <Link to={`/movies/${movieId}/reviews`} replace={true}>
-            Reviews
-          </Link>
+            <Link to={`/movies/${movieId}/cast`} replace={true}>
+              Cast
+            </Link>
+            <Link to={`/movies/${movieId}/reviews`} replace={true}>
+              Reviews
+            </Link>
+          </ContainerLink>
 
           <hr />
 

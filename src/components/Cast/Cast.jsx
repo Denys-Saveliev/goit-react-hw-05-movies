@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import * as Api from '../../service/moviesApi';
+import { CastList } from './Cast.styled';
 
 const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w200';
 
@@ -14,7 +15,7 @@ const Cast = () => {
 
   return (
     cast && (
-      <ul>
+      <CastList>
         {cast.map(({ id, name, character, profile_path }) => (
           <li key={id}>
             <img src={BASE_IMAGE_URL + profile_path} alt="name" />
@@ -22,7 +23,7 @@ const Cast = () => {
             <p>{character}</p>
           </li>
         ))}
-      </ul>
+      </CastList>
     )
   );
 };
