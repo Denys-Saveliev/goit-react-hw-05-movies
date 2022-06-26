@@ -70,6 +70,7 @@ const Button = styled.button`
   border-radius: 5px;
   border: none;
   color: #2a363b;
+  transition: all 250ms ease;
 
   &:hover {
     cursor: pointer;

@@ -8,8 +8,13 @@ export const Link = styled(NavLink)`
   font-weight: 500;
   color: #2a363b;
   font-size: 18px;
+  transition: all 250ms ease;
 
   &.active {
     color: #2196f3;
+  }
+
+  &:hover {
+    transform: scale(1.03);
   }
 `;

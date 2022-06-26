@@ -32,9 +32,10 @@ const MovieItem = styled.li`
   border: 1px solid #eee56b;
   border-radius: 10px;
   background-color: #ddddddc4;
+  transition: transform 250ms ease;
 
   &:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
   }
 `;
 
