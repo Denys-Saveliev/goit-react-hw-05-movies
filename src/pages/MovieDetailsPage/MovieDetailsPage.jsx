@@ -10,6 +10,10 @@ import {
   Overview,
   Box,
   ContainerLink,
+  MovieTitle,
+  MovieImage,
+  Button,
+  Hr,
 } from './MovieDetailsPage.styled';
 import { Link } from 'components/Navigation/Navigation.styled';
 const Cast = lazy(() =>
@@ -35,18 +39,21 @@ const MovieDetailsPage = () => {
 
   return (
     <>
-      <button type="button" onClick={() => navigate(-1)}>
+      <Button type="button" onClick={() => navigate(-1)}>
         Back
-      </button>
+      </Button>
 
       {movie && (
         <>
           <Wrapper>
             <div>
-              <img src={BASE_IMAGE_URL + movie.poster_path} alt={movie.title} />
+              <MovieImage
+                src={BASE_IMAGE_URL + movie.poster_path}
+                alt={movie.title}
+              />
             </div>
             <Container>
-              <h2>{movie.title}</h2>
+              <MovieTitle>{movie.title}</MovieTitle>
               <Box>
                 <Title>Genres:</Title>
                 <Text>{movie.genres.map(genre => genre.name).join(', ')}</Text>
@@ -68,7 +75,7 @@ const MovieDetailsPage = () => {
           </Wrapper>
 
           <ContainerLink>
-            <h2>Additional information:</h2>
+            <h2 style={{ color: '#2a363b' }}>Additional information:</h2>
 
             <Link to={`/movies/${movieId}/cast`} replace={true}>
               Cast
@@ -78,7 +85,7 @@ const MovieDetailsPage = () => {
             </Link>
           </ContainerLink>
 
-          <hr />
+          <Hr />
 
           <Suspense fallback={<>loading...</>}>
             <Routes>

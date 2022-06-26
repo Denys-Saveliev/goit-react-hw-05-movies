@@ -15,7 +15,7 @@ const HomePage = () => {
 
   return (
     <>
-      <h1>Trending today:</h1>
+      <h1 style={{ color: '#2a363b' }}>Trending today:</h1>
       <MovieLinkList data={data} />
     </>
   );

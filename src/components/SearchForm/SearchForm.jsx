@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { Button } from 'pages/MovieDetailsPage/MovieDetailsPage.styled';
+import { Form, Input } from './SearchForm.styled';
 
 export const SearchForm = () => {
   const [query, setQuery] = useState('');
@@ -32,14 +34,14 @@ export const SearchForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <Form onSubmit={handleSubmit}>
+      <Input
         type="text"
         value={query}
         placeholder="Search movies"
         onChange={handleStateChange}
       />
-      <button type="submit">Search</button>
-    </form>
+      <Button type="submit">Search</Button>
+    </Form>
   );
 };

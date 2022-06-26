@@ -7,16 +7,21 @@ const Wrapper = styled.div`
   border-radius: 10px;
   overflow: hidden;
   background-color: #ddddddc4;
+`;
 
-  h2 {
-    text-align: center;
-    margin-bottom: 40px;
-  }
+const Hr = styled.hr`
+  color: #eee56b;
+`;
 
-  img {
-    width: 250px;
-    object-fit: cover;
-  }
+const MovieTitle = styled.h2`
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2a363b;
+`;
+
+const MovieImage = styled.img`
+  width: 250px;
+  object-fit: cover;
 `;
 
 const Box = styled.div`
@@ -28,10 +33,12 @@ const Box = styled.div`
 const Title = styled.h3`
   font-weight: 500;
   margin-right: 10px;
+  color: #2a363b;
 `;
 
 const Text = styled.p`
   margin-right: 8px;
+  color: #2a363b;
 `;
 
 const Container = styled.div`
@@ -46,6 +53,7 @@ const ContainerLink = styled.div`
 
   h2 {
     margin-right: 20px;
+    color: #2a363b;
   }
 `;
 
@@ -53,5 +61,33 @@ const Overview = styled.h3`
   font-weight: 500;
   text-align: center;
   margin-bottom: 10px;
+  color: #2a363b;
 `;
-export { Wrapper, Title, Text, Container, Overview, Box, ContainerLink };
+
+const Button = styled.button`
+  margin-bottom: 20px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: none;
+  color: #2a363b;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    color: #2196f3;
+  }
+`;
+
+export {
+  MovieTitle,
+  MovieImage,
+  Wrapper,
+  Title,
+  Text,
+  Container,
+  Overview,
+  Box,
+  ContainerLink,
+  Button,
+  Hr,
+};

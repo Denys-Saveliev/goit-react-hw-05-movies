@@ -1,18 +1,28 @@
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import {
+  MoviesList,
+  MovieItem,
+  MovieLink,
+  LinkText,
+} from './MovieLinkList.styled';
+
+const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w300';
 
 const MovieLinkList = ({ data }) => {
   return (
     data && (
-      <ul>
-        {data.map(({ id, title }) => {
+      <MoviesList>
+        {data.map(({ id, title, poster_path }) => {
           return (
-            <li key={id}>
-              <Link to={`/movies/${id}`}>{title}</Link>
-            </li>
+            <MovieItem key={id}>
+              <MovieLink to={`/movies/${id}`}>
+                <img src={BASE_IMAGE_URL + poster_path} alt={title} />
+                <LinkText> {title}</LinkText>
+              </MovieLink>
+            </MovieItem>
           );
         })}
-      </ul>
+      </MoviesList>
     )
   );
 };
