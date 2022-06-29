@@ -18,7 +18,7 @@ const CastList = styled.ul`
   img {
     object-fit: cover;
     width: 100px;
-    height: auto;
+    height: 150px;
     margin-bottom: 10px;
   }
 
