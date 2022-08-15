@@ -5,6 +5,7 @@ import {
   MovieLink,
   LinkText,
 } from './MovieLinkList.styled';
+import comingSoonImg from '../../images/soon.png';
 
 const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w300';
 
@@ -16,7 +17,13 @@ const MovieLinkList = ({ data }) => {
           return (
             <MovieItem key={id}>
               <MovieLink to={`/movies/${id}`}>
-                <img src={BASE_IMAGE_URL + poster_path} alt={title} />
+                <img
+                  style={{ height: '450px' }}
+                  src={
+                    poster_path ? BASE_IMAGE_URL + poster_path : comingSoonImg
+                  }
+                  alt={title}
+                />
                 <LinkText> {title}</LinkText>
               </MovieLink>
             </MovieItem>

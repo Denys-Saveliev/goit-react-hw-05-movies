@@ -10,6 +10,7 @@ const Input = styled.input`
   border-radius: 5px;
   border: 1px solid lightgray;
   margin-right: 5px;
+  outline: none;
   transition: all 250ms ease;
 
   &:hover,
