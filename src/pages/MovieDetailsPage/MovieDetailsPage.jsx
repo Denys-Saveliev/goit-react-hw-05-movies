@@ -17,6 +17,8 @@ import {
 } from './MovieDetailsPage.styled';
 import { Link } from 'components/Navigation/Navigation.styled';
 import comingSoonImg from '../../images/soon.png';
+import { RotatingLines } from 'react-loader-spinner';
+
 const Cast = lazy(() =>
   import('../../components/Cast/Cast' /* webpackChunkName: "cast-view" */)
 );
@@ -90,17 +92,28 @@ const MovieDetailsPage = () => {
           <ContainerLink>
             <h2 style={{ color: '#2a363b' }}>Additional information:</h2>
 
-            <Link to={`/movies/${movieId}/cast`} replace={true}>
+            <Link to="cast" replace={true}>
               Cast
             </Link>
-            <Link to={`/movies/${movieId}/reviews`} replace={true}>
+            <Link to="reviews" replace={true}>
               Reviews
             </Link>
           </ContainerLink>
 
           <Hr />
 
-          <Suspense fallback={<>loading...</>}>
+          <Suspense
+            fallback={
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                }}
+              >
+                <RotatingLines strokeColor="#eee56b" />
+              </div>
+            }
+          >
             <Routes>
               <Route path="cast" element={<Cast />} />
               <Route path="reviews" element={<Reviews />} />

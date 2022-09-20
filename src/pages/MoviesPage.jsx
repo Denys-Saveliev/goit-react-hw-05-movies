@@ -7,9 +7,9 @@ import * as Api from '../service/moviesApi';
 const MoviesPage = () => {
   const [data, setData] = useState(null);
   const { search } = useLocation();
-
   useEffect(() => {
     const query = search.slice(8);
+
     if (!query) {
       return;
     }
