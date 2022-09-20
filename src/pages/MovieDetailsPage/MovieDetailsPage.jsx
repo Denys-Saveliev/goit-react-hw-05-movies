@@ -24,6 +24,8 @@ const Reviews = lazy(() =>
     '../../components/Reviews/Reviews' /* webpackChunkName: "reviews-view" */
   )
 );
+import comingSoonImg from '../images/soon.png';
+
 
 const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w300';
 
@@ -48,7 +50,7 @@ const MovieDetailsPage = () => {
           <Wrapper>
             <div>
               <MovieImage
-                src={BASE_IMAGE_URL + movie.poster_path}
+                src={movie.poster_path? BASE_IMAGE_URL + movie.poster_path: comingSoonImg}
                 alt={movie.title}
               />
             </div>
