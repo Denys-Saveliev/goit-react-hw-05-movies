@@ -21,6 +21,7 @@ const MovieTitle = styled.h2`
 
 const MovieImage = styled.img`
   width: 250px;
+  height: 375px;
   object-fit: cover;
 `;
 
@@ -37,13 +38,14 @@ const Title = styled.h3`
 `;
 
 const Text = styled.p`
-  margin-right: 8px;
   color: #2a363b;
+  text-align: center;
 `;
 
 const Container = styled.div`
   height: auto;
   padding: 40px 60px;
+  width: 790px;
 `;
 
 const ContainerLink = styled.div`

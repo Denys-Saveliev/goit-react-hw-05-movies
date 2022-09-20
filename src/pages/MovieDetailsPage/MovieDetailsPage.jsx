@@ -16,6 +16,7 @@ import {
   Hr,
 } from './MovieDetailsPage.styled';
 import { Link } from 'components/Navigation/Navigation.styled';
+import comingSoonImg from '../../images/soon.png';
 const Cast = lazy(() =>
   import('../../components/Cast/Cast' /* webpackChunkName: "cast-view" */)
 );
@@ -24,8 +25,6 @@ const Reviews = lazy(() =>
     '../../components/Reviews/Reviews' /* webpackChunkName: "reviews-view" */
   )
 );
-import comingSoonImg from '../images/soon.png';
-
 
 const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w300';
 
@@ -50,7 +49,11 @@ const MovieDetailsPage = () => {
           <Wrapper>
             <div>
               <MovieImage
-                src={movie.poster_path? BASE_IMAGE_URL + movie.poster_path: comingSoonImg}
+                src={
+                  movie.poster_path
+                    ? BASE_IMAGE_URL + movie.poster_path
+                    : comingSoonImg
+                }
                 alt={movie.title}
               />
             </div>
@@ -58,21 +61,29 @@ const MovieDetailsPage = () => {
               <MovieTitle>{movie.title}</MovieTitle>
               <Box>
                 <Title>Genres:</Title>
-                <Text>{movie.genres.map(genre => genre.name).join(', ')}</Text>
+                <Text>
+                  {movie.genres.length
+                    ? movie.genres.map(genre => genre.name).join(', ')
+                    : 'Coming soon'}
+                </Text>
               </Box>
 
               <Box>
                 <Title>Rate:</Title>
-                <p>{movie.popularity}</p>
+                <Text>
+                  {movie.popularity ? movie.popularity : 'Coming soon'}
+                </Text>
               </Box>
 
               <Box>
                 <Title>Release date:</Title>
-                <p>{movie.release_date}</p>
+                <Text>
+                  {movie.release_date ? movie.release_date : 'Coming soon'}
+                </Text>
               </Box>
 
               <Overview>Overview</Overview>
-              <p>{movie.overview}</p>
+              <Text>{movie.overview ? movie.overview : 'Coming soon'}</Text>
             </Container>
           </Wrapper>
 
